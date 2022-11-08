@@ -7,6 +7,9 @@ library("tidyr")
 install.packages("readr")
 library("readr")
 
+install.packages("stringr")
+library("stringr")
+
 df <- read.csv(url, fileEncoding = "UTF-8")  
 df1 <- read.csv(url1, fileEncoding = "ISO-8859-9")
 
@@ -26,7 +29,7 @@ for(i in 1:153){      #preenche a coluna "vitoria" com 1 no caso de amigos>opone
 
 df2=df2[,-3:-4]     #retira as colunas 3 e 4
 
-df2=df2 %>% separate(Jogadore.a.s, c("j1","j2","j3"),",")     #divide as coluna jogadores em três
+df2=df2 %>% separate(Jogadore.a.s, c("j1","j2","j3"),",")     #divide a coluna jogadores em três
 
 df2=as.data.frame(apply(df2,2,function(x)gsub("\\s+","",x)))      #retira espaços  
 
